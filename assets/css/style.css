@@ -32,7 +32,7 @@ html, body{
 #answersDiv,#reset{
     margin-top: 20px;
 }
-.choice{
+.choice,#correctCounter,#wrongCounter,#idleCounter{
     margin-top: 10px;
 }
 .choice:hover{
