@@ -1,0 +1,55 @@
+html, body{
+    background: url(../images/background.png);
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+#center{
+    width: 60%;
+    height: 400px;
+    background: black;
+    border: gray solid 1px;
+    margin: 50px auto auto auto;
+}
+#title{
+    margin-top: 100px;
+    font: 30px bold;
+    text-align: center;
+}
+#content{
+    margin-top: 50px;
+    height: 200px;
+    font: 20px;
+    text-align: center;
+    position: relative;
+}
+#timerDiv{
+    margin-top: 10px;
+}
+#questionDiv{
+    margin-top: 10px;
+}
+#answersDiv,#reset{
+    margin-top: 20px;
+}
+.choice{
+    margin-top: 10px;
+}
+.choice:hover{
+    background-color: white;
+    color: black;
+}
+#quoteDiv, #quotedDiv{
+    font-style: italic;
+    text-align: initial;
+    position: absolute;
+}
+#quoteDiv{
+    bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#quotedDiv{
+    bottom: 0px;
+    right: 10px;
+}

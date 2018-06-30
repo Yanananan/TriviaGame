@@ -33,7 +33,7 @@ var quiz = [
     }
 ]
 var questionCounter = 0;//counter to keep track of questions
-var answerID="";//variable for selected answer, will be "" if not selected
+var answerID=undefined;//variable for selected answer, will be "" if not selected
 var questionTimer;//timer for answering question
 var questionCountdown;//counter to display timer on screen
 var correctCounter = 0;//counter for correct answers
@@ -55,13 +55,15 @@ function fillQuestion(){
             $("#answersDiv").prepend($("<div>").attr({"class":"choice","id":"choice"+i}).html(quiz[questionCounter].answers[i]));
         }
     }
-    var counter = 5;
+    var counter = 7;
+    $("#timerSpan").text(counter);
     questionCountdown = setInterval(function(){
+        
         counter--;
         $("#timerSpan").text(counter);
         
     },1000)
-    questionTimer = setTimeout(fillAnswer,5000);
+    questionTimer = setTimeout(fillAnswer,7000);
 }
 
 //function to display answer page, will redirect to question page or result page after a timer, depending on situation
@@ -76,7 +78,7 @@ function fillAnswer(){
         $("#questionDiv").html("You have a point.");
         correctCounter++;
     } else {
-        if (answerID==""){
+        if (answerID==undefined){
             $("#questionDiv").html("Let's revisit this later...");
             idleCounter++;
         } else {
@@ -89,12 +91,12 @@ function fillAnswer(){
     $("#content").append($("<div>").attr("id","quotedDiv").html(quiz[questionCounter].quoted));
     
 
-    answerID="";
+    answerID=undefined;
     questionCounter++;
     if (questionCounter==quiz.length){//if no more questions
-        setTimeout(fillResult,3000);
+        setTimeout(fillResult,5000);
     } else {
-        setTimeout(fillQuestion,3000);
+        setTimeout(fillQuestion,5000);
     }
 }
 
@@ -106,7 +108,7 @@ function fillResult(){
     $("#correctChoice").remove();
     $("#answersDiv").append($("<div>").attr({"id":"correctCounter"}).html("Number of valid points: "+correctCounter));
     $("#answersDiv").append($("<div>").attr({"id":"wrongCounter"}).html("Opportunities for change: "+wrongCounter));
-    $("#answersDiv").append($("<div>").attr({"id":"idleCounter"}).html("Topics to delve into: "+idleCounter));
+    $("#answersDiv").append($("<div>").attr({"id":"idleCounter"}).html("Topics to revisit: "+idleCounter));
     $("#answersDiv").append($("<div>").attr({"id":"reset"}).html("Shall we try again?"));
     $("#quoteDiv").remove();
     $("#quotedDiv").remove();
